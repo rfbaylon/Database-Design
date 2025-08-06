@@ -1,0 +1,8 @@
+2025-08-05 14:34:44,745 INFO: API startup [in /apicode/backend/rest_entry.py:89]
+2025-08-05 14:34:44,753 INFO: current_app(): starting the database connection [in /apicode/backend/rest_entry.py:42]
+2025-08-05 14:34:44,754 INFO: create_app(): registering blueprints with Flask app object. [in /apicode/backend/rest_entry.py:47]
+2025-08-05 14:34:44,862 INFO: API startup [in /apicode/backend/rest_entry.py:89]
+2025-08-05 14:34:44,863 INFO: current_app(): starting the database connection [in /apicode/backend/rest_entry.py:42]
+2025-08-05 14:34:44,864 INFO: create_app(): registering blueprints with Flask app object. [in /apicode/backend/rest_entry.py:47]
+2025-08-05 14:37:07,150 INFO: GET / handler [in /apicode/backend/simple/simple_routes.py:25]
+2025-08-05 14:54:56,165 INFO: GET /data handler [in /apicode/backend/simple/simple_routes.py:65]
