@@ -1,0 +1,8 @@
+services:
+  databasedesign:
+    image: databasedesign
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 3306:3306
