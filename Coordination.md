@@ -8,7 +8,8 @@ DUE FRI AT 5pm
 - [ ] add in bridge tables (which imo is great news -- we wont have to build a front end for the a few features)
 - [ ] Implement REST API to python (imo im not sure we need as many rows as we have -- which is also good news)
 - [ ] Jose Landing Page
-    - [ ] Jose Feature 1
+    - [x] Jose Feature 1
+        - 3.4 Done by Ryan, though its not pretty.
     - [ ] Jose Feature 2
     - [ ] Jose Feature 3
 - [ ] Jack Landing Page
