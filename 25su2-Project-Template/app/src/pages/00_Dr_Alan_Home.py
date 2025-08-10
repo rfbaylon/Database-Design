@@ -19,17 +19,17 @@ if st.button('Add new project',
              use_container_width=True):
   st.switch_page('pages/01_Add_New_Project.py')
 
-if st.button('Manage planner and tasks', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_Planner_And_Tasks.py')
-
 if st.button('View completed projects', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/04_Completed_Projects.py')
+  st.switch_page('pages/02_Completed_Projects.py')
 
 if st.button('View project by tags', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/05_Project_Tags.py')
+  st.switch_page('pages/03_Project_Tags.py')
+
+if st.button('Manage planner and tasks', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/04_Planner_And_Tasks.py')
