@@ -1,10 +1,14 @@
 import logging
+logging.basicConfig(format='%(filename)s:%(lineno)s:%(levelname)s -- %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
+from modules.nav import SideBarLinks
 import streamlit as st
 import mysql.connector
 
-
+st.session_state['authenticated'] = False
+SideBarLinks(show_home=True)
 st.set_page_config(layout = 'wide')
 
 @st.cache_resource
@@ -74,6 +78,8 @@ with left:
 with right:
     st.header("Right Half")
     st.write("Content for the right side")
-    st.button("Right Button")
-
+    if st.button('Add New Project', 
+            type = 'primary', 
+            use_container_width=False):
+        st.switch_page('pages/01_Add_New_Project.py')
 

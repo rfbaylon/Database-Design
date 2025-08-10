@@ -1,6 +1,9 @@
 import streamlit as st
 import requests
 
+from modules.nav import SideBarLinks
+SideBarLinks(show_home=True)
+
 st.title("Add New Project")
 
 # Form inputs
