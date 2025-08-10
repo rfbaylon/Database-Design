@@ -10,8 +10,7 @@ title = st.text_input("Title")
 notes = st.text_area("Notes")
 status = st.selectbox("Status", ["onIce", "inProgress", "completed"])
 priority = st.slider("Priority", 1, 10, 4)
-completedAt = st.text_input("Completed At (optional)")
-schedule = st.text_input("Schedule (optional)")
+schedule = st.text_input("Deadline")
 
 if st.button("Submit"):
     project_data = {
