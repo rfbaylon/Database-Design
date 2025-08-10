@@ -9,7 +9,7 @@ DUE FRI AT 5pm
 - [ ] Implement REST API to python (imo im not sure we need as many rows as we have -- which is also good news)
 - [ ] Jose Landing Page
     - [x] Jose Feature 1
-        - 3.4 Done by Ryan, though its not pretty.
+        - 3.4 Done by Ryan, though its not pretty. I mostly did it to understand streamlit syntax
     - [ ] Jose Feature 2
     - [ ] Jose Feature 3
 - [ ] Jack Landing Page
@@ -21,7 +21,9 @@ DUE FRI AT 5pm
     - [ ] Alan Feature 2
     - [ ] Alan Feature 3
 - [ ] Avery Landing Page
-    - [ ] Avery Feature 1
+    - [x] Avery Feature 1
+        - 1.1 Done by Ryan. I interpreted it as just having subgoals, though that shouldnt be an issue.
     - [ ] Avery Feature 2
+        - 1.5
     - [ ] Avery Feature 3
 
