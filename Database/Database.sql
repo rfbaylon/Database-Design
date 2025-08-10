@@ -6,6 +6,7 @@ USE `global-GoalFlow`;
 
 
 
+
 -- USERS TABLE
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
@@ -19,20 +20,18 @@ planType        VARCHAR(50)         NOT NULL DEFAULT 'plan_name',
 manages         INT,
 id              INT                 AUTO_INCREMENT NOT NULL,   -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 UNIQUE INDEX uq_idx_phoneNumber (phoneNumber),
 UNIQUE INDEX uq_idx_email (email),
 INDEX idx_manages (manages),
 INDEX idx_role (role),
 
-
 FOREIGN KEY (manages) REFERENCES users(id)
  ON DELETE SET NULL
  ON UPDATE CASCADE
 );
+
 
 
 
@@ -44,12 +43,11 @@ name            VARCHAR(50),
 color           VARCHAR(7)          NOT NULL DEFAULT '#ffffff',
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 INDEX idx_name (name)
 );
+
 
 
 
@@ -68,25 +66,20 @@ content         TEXT,
 tag             INT                 NOT NULL,
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
-
-
 
 UNIQUE INDEX uq_idx_slug (slug),
 INDEX idx_authorId (authorId),
-
 
 FOREIGN KEY (authorId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE,
 
-
 FOREIGN KEY (tag) REFERENCES tags(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -103,23 +96,20 @@ content         TEXT,
 tag             INT                 NOT NULL,
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 INDEX index_userId (userId),
 INDEX index_postId (postId),
-
 
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE,
 
-
 FOREIGN KEY (postId) REFERENCES posts(id)
 ON UPDATE RESTRICT
 ON DELETE CASCADE
 );
+
 
 
 
@@ -138,21 +128,17 @@ isActive        TINYINT(1)          NOT NULL DEFAULT 1,           -- EXTRA ATTRI
 postCount       INT                 UNSIGNED NOT NULL DEFAULT 0,  -- EXTRA ATTRIBUTE
 id              INT                 AUTO_INCREMENT NOT NULL,      -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
-
-
 
 INDEX idx_userId (userId),
 INDEX idx_deviceType (deviceType),
 INDEX idx_lastLogin (lastLogin),
 
-
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -170,20 +156,18 @@ status          TINYINT(1)          NOT NULL DEFAULT 0,    -- 0 = Not Completed,
 priority        TINYINT             NOT NULL DEFAULT 4,    -- where 1 = critical, 2 = high, 3 = medium, 4 = low
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 UNIQUE INDEX uq_slug (slug),
 INDEX idx_status (status),
 INDEX idx_priority (priority),
 INDEX idx_dateReported (dateReported),
 
-
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -200,19 +184,17 @@ createdAt       DATETIME            NOT NULL DEFAULT CURRENT_TIMESTAMP,
 notes           TEXT,
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 UNIQUE INDEX uq_slug (slug),
 INDEX idx_category (category),
 INDEX idx_createdAt (createdAt),
 
-
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -231,25 +213,22 @@ schedule        DATE,
 notes           TEXT,
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 UNIQUE INDEX uq_slug (slug),
 INDEX idx_userId (userId),
 INDEX idx_schedule (schedule),
 INDEX idx_status (status),
 
-
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE,
-
 
 FOREIGN KEY (tagId) REFERENCES tags(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -270,9 +249,7 @@ completed       TINYINT(1)          NOT NULL DEFAULT 0, -- EXTRA ATTRIBUTE, NOT 
 schedule        DATE,                                   -- ADDED ?
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 INDEX idx_userId (userId),
 INDEX idx_tagId (tagId),
@@ -281,16 +258,15 @@ INDEX idx_priority (priority),
 INDEX idx_createdAt (createdAt),
 INDEX idx_completedAt (completedAt),
 
-
 FOREIGN KEY (userId) REFERENCES users(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE,
-
 
 FOREIGN KEY (tagId) REFERENCES tags(id)
  ON UPDATE RESTRICT
  ON DELETE CASCADE
 );
+
 
 
 
@@ -308,15 +284,12 @@ completed       TINYINT(1)          NOT NULL DEFAULT 0,
 schedule        DATE,                                   -- ADDED ?
 id              INT                 AUTO_INCREMENT NOT NULL,    -- DIF. NAME
 
-
 PRIMARY KEY (id),
-
 
 INDEX idx_goalsId (goalsId),
 INDEX idx_status (status),
 INDEX idx_createdAt (createdAt),
 INDEX idx_completedAt (completedAt),
-
 
 FOREIGN KEY (goalsId) REFERENCES goals(id)
  ON UPDATE RESTRICT
