@@ -1,11 +1,8 @@
-import logging
-logger = logging.getLogger(__name__)
-
 import streamlit as st
 import mysql.connector
+import pandas as pd
 
-
-st.set_page_config(layout = 'wide')
+st.title("Backlog")
 
 @st.cache_resource
 def init_connection():
@@ -17,24 +14,24 @@ def init_connection():
         database="global-GoalFlow"
     )
 
-# Function to run queries
 def run_query(query, params=None):
     conn = init_connection()
     cursor = conn.cursor()
     cursor.execute(query, params or ())
     result = cursor.fetchall()
     cursor.close()
-    conn.close()
     return result
 
+on_ice = run_query("SELECT title, notes FROM goals WHERE status = 'ON ICE'")
+print(on_ice)
 
-st.title(f"Welcome Jose!")
-
-try:
-    emails = run_query("SELECT COUNT(email) FROM users")
-
-    st.write("Total users on the app:")
-    st.write(emails[0][0])
-        
-except Exception as e:
-    st.error(f"Error fetching emails: {e}")
+for goal in on_ice:
+    col1, col2 = st.columns([4, 1])
+    
+    with col1:
+        st.write(f"**{goal[1]}**")
+    
+    with col2:
+        if st.button("Activate", key=f"activate_{goal[0]}"):
+            # activate_goal(goal[0])
+            st.rerun()

@@ -49,7 +49,7 @@ with left:
     with a:
         st.header("Goal A", divider=True)
         st.subheader(active[0][1]) # Goal name
-        st.write(f"Due {active[0][3]}") # Due date
+        st.write(f"Due :blue[{active[0][3]}]") # Due date
         st.write(active[0][2]) # Description
         st.write("### Subgoals") # Subgoals
         for subgoal in subgoals:
@@ -59,7 +59,7 @@ with left:
     with b:
         st.header("Goal B", divider=True)
         st.subheader(active[1][1])
-        st.write(f"Due {active[1][3]}")
+        st.write(f"Due :blue[{active[1][3]}]")
         st.write(active[1][2])
         st.write("### Subgoals")
         for subgoal in subgoals:
@@ -68,7 +68,7 @@ with left:
     with c:
         st.header("Goal C", divider=True)
         st.subheader(active[2][1])
-        st.write(f"Due {active[2][3]}")
+        st.write(f"Due :blue[{active[2][3]}]")
         st.write(active[2][2])
         st.write("### Subgoals")
         for subgoal in subgoals:
@@ -81,5 +81,5 @@ with right:
     if st.button('Add New Project', 
             type = 'primary', 
             use_container_width=False):
-        st.switch_page('pages/01_Add_New_Project.py')
+        st.switch_page('pages/NewProject.py')
 
