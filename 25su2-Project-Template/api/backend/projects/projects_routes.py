@@ -11,7 +11,7 @@ projects = Blueprint('projects', __name__)
 # This is a POST route to add a new product.
 # Remember, we are using POST routes to create new entries
 # in the database. 
-@projects.route('/projects', methods=['POST'])
+@projects.route('/addproject', methods=['POST'])
 def add_new_project():
     
     # In a POST request, there is a 
@@ -56,6 +56,59 @@ def add_new_project():
     db.get_db().commit()
     
     response = make_response("Successfully added project")
+    response.status_code = 202
+    return response
+
+@projects.route('/completedprojects', methods=['GET'])
+def view_completed_projects():
+    query = '''
+        SELECT * FROM goals WHERE status = 'completed'
+    '''
+    current_app.logger.info(query)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    completed_projects = cursor.fetchall()
+
+    if not completed_projects:
+        return jsonify({"message": "No completed projects found"}), 404
+
+    response = make_response(jsonify(completed_projects))
     response.status_code = 200
     return response
 
+@projects.route('/projecttags', methods=['GET'])
+def view_projects_by_tags():
+    query = '''
+        SELECT * FROM goals WHERE tagID IS NOT NULL
+    '''
+    current_app.logger.info(query)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    projects_by_tags = cursor.fetchall()
+
+    if not projects_by_tags:
+        return jsonify({"message": "No projects found with tags"}), 404
+
+    response = make_response(jsonify(projects_by_tags))
+    response.status_code = 200
+    return response
+
+@projects.route('/projectprioity', methods=['GET'])
+def view_projects_by_priority():
+    query = '''
+        SELECT * FROM goals ORDER BY priority DESC
+    '''
+    current_app.logger.info(query)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    projects_by_priority = cursor.fetchall()
+
+    if not projects_by_priority:
+        return jsonify({"message": "No projects found"}), 404
+
+    response = make_response(jsonify(projects_by_priority))
+    response.status_code = 200
+    return response

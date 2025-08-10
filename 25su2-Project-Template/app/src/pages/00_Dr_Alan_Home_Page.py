@@ -33,3 +33,8 @@ if st.button('Manage planner and tasks',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/04_Planner_And_Tasks.py')
+
+if st.button('Set priority on projects', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/05_Set_Priority.py')
