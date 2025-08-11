@@ -6,7 +6,7 @@ st.title("Completed Projects")
 try:
     response = requests.get("http://localhost:4000/projects/completedprojects")
 
-    if response.status_code == 202:
+    if response.status_code == 200:
         projects = response.json()
 
         if projects:

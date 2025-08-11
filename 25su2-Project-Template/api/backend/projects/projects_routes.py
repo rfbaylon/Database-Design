@@ -56,7 +56,7 @@ def add_new_project():
     db.get_db().commit()
     
     response = make_response("Successfully added project")
-    response.status_code = 202
+    response.status_code = 200
     return response
 
 @projects.route('/completedprojects', methods=['GET'])
@@ -95,20 +95,3 @@ def view_projects_by_tags():
     response.status_code = 200
     return response
 
-@projects.route('/projectprioity', methods=['GET'])
-def view_projects_by_priority():
-    query = '''
-        SELECT * FROM goals ORDER BY priority DESC
-    '''
-    current_app.logger.info(query)
-
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    projects_by_priority = cursor.fetchall()
-
-    if not projects_by_priority:
-        return jsonify({"message": "No projects found"}), 404
-
-    response = make_response(jsonify(projects_by_priority))
-    response.status_code = 200
-    return response
