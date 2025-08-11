@@ -29,7 +29,7 @@ if st.button("Submit"):
 
     try:
         # Replace this URL with your actual backend API URL
-        response = requests.post("http://localhost:4000/projects", json=project_data)
+        response = requests.post("http://localhost:3306/projects", json=project_data)
 
         if response.status_code == 200:
             st.success("Project added successfully!")
