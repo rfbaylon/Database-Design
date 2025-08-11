@@ -1,5 +1,4 @@
 # What is Goal Planner (Global GoalFlow)?
-
 Goal Planner is a comprehensive goal and habit management platform that transforms how people approach long-term achievement by making data work for them, not against them. Unlike traditional to-do apps that leave users drowning in endless lists, Goal Planner intelligently breaks down ambitious projects into manageable phases, automatically suggests next tasks when you complete something, and seamlessly integrates daily habits with major milestones.
 
 By collecting and analyzing user progress patterns, deadline adherence, and completion rates, our app provides personalized insights that help users understand their productivity patterns and optimize their approach to goal achievement.
@@ -7,7 +6,6 @@ By collecting and analyzing user progress patterns, deadline adherence, and comp
 We're building this for four distinct user types: individual achievers like freelancers and students who juggle multiple projects, professionals and researchers who need structured approaches to complex work, business analysts who require data-driven insights into team performance and goal completion rates, and system administrators who need robust, scalable platforms for managing user communities.
 
 ## Project Members
-
 - Ryan Baylon  
 - Hyeyeon Seo
 - Jaden Hu
