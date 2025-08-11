@@ -4,7 +4,7 @@ import requests
 st.title("Completed Projects")
 
 try:
-    response = requests.get("http://localhost:3306/projects/completedprojects")
+    response = requests.get("http://localhost:4000/projects/completedprojects")
 
     if response.status_code == 202:
         projects = response.json()

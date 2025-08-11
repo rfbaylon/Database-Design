@@ -5,7 +5,7 @@ st.title("Project Tags")
 
 try:
     # Call your Flask endpoint
-    response = requests.get("http://localhost:3306/projects/projecttags")
+    response = requests.get("http://localhost:4000/projects/projecttags")
 
     if response.status_code == 200:
         tags = response.json()

@@ -12,7 +12,7 @@ tagID = st.text_input("Tag ID")
 title = st.text_input("Title")
 notes = st.text_area("Notes")
 status = st.selectbox("Status", ["onIce", "inProgress", "completed"])
-priority = st.slider("Priority", 1, 10, 4)
+priority = st.slider("Priority", 1, 4, 4)
 schedule = st.text_input("Deadline")
 
 if st.button("Submit"):
@@ -29,7 +29,7 @@ if st.button("Submit"):
 
     try:
         # Replace this URL with your actual backend API URL
-        response = requests.post("http://localhost:3306/projects", json=project_data)
+        response = requests.post("http://localhost:4000/projects", json=project_data)
 
         if response.status_code == 200:
             st.success("Project added successfully!")
