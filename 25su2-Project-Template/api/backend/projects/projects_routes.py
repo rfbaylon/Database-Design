@@ -26,7 +26,6 @@ def add_new_project():
     notes = the_data.get('notes')
     status = the_data.get('status', 'onIce')
     priority = the_data.get('priority', 4)
-    completedAt = the_data.get('completedAt')
     schedule = the_data.get('schedule')
 
     
@@ -37,9 +36,8 @@ def add_new_project():
                               notes,
                               status,
                               priority,
-                              completedAt,
                               schedule)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
     '''
     # TODO: Make sure the version of the query above works properly
     # Constructing the query
@@ -52,7 +50,7 @@ def add_new_project():
 
     # executing and committing the insert statement 
     cursor = db.get_db().cursor()
-    cursor.execute(query, (userID, tagID, title, notes, status, priority, completedAt, schedule))
+    cursor.execute(query, (userID, tagID, title, notes, status, priority, schedule))
     db.get_db().commit()
     
     response = make_response("Successfully added project")
