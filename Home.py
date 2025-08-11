@@ -21,7 +21,7 @@ def init_connection():
         database="global-GoalFlow"
     )
 
-# Function to run queries
+# Function to run queries hello
 def run_query(query, params=None):
     conn = init_connection()
     cursor = conn.cursor()
